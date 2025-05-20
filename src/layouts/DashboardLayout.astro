@@ -1,6 +1,18 @@
 ---
+/**
+ * @file Dashboard layout component.
+ * This layout is used for pages within the authenticated dashboard section of the application.
+ * It extends the base `Layout` component.
+ * @module layouts/DashboardLayout
+ * @see module:layouts/Layout
+ */
 import Layout from "./Layout.astro";
 
+/**
+ * Props for the DashboardLayout component.
+ * @interface Props
+ * @property {string} [title="Dashboard | Employee Assessment System"] - The title of the page.
+ */
 interface Props {
   title?: string;
 }

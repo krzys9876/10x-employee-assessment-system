@@ -1,8 +1,10 @@
 ---
-import Welcome from "../components/Welcome.astro";
-import Layout from "../layouts/Layout.astro";
+/**
+ * @file This file handles the root path redirection.
+ * It redirects users to the login page.
+ * @module pages/index
+ */
+export const prerender = false;
 ---
 
-<Layout>
-  <Welcome />
-</Layout>
+<meta http-equiv="refresh" content="0;url=/login" />
