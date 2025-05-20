@@ -58,6 +58,7 @@ const reactConfig = tseslint.config({
 });
 
 export default tseslint.config(
+  { ignores: ["docs/**"] },
   includeIgnoreFile(gitignorePath),
   baseConfig,
   jsxA11yConfig,
