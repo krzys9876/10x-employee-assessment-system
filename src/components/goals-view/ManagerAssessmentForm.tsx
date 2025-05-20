@@ -18,7 +18,6 @@ export function ManagerAssessmentForm({
 
   // Log initial values for debugging
   useEffect(() => {
-    // eslint-disable-next-line no-console
     console.log(`ManagerAssessmentForm for goal ${goalId}:`, {
       initialRating,
       initialComment,

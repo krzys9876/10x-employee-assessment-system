@@ -192,7 +192,6 @@ export const GET: APIRoute = async ({ params, locals }): Promise<Response> => {
 
     return createApiResponse(response);
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Nieoczekiwany błąd podczas obsługi żądania GET:", error);
     return createErrorResponse("Wystąpił błąd serwera", 500);
   }
@@ -287,7 +286,6 @@ export const PUT: APIRoute = async ({ request, params, locals }): Promise<Respon
 
     return createApiResponse(response);
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Nieoczekiwany błąd podczas obsługi żądania PUT:", error);
     return createErrorResponse("Wystąpił błąd serwera", 500);
   }
@@ -339,7 +337,6 @@ export const DELETE: APIRoute = async ({ params, locals }): Promise<Response> =>
       },
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Nieoczekiwany błąd podczas obsługi żądania DELETE:", error);
     return createErrorResponse("Wystąpił błąd serwera", 500);
   }

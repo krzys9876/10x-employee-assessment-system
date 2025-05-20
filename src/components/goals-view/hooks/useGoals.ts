@@ -39,13 +39,12 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
     try {
       const response = await fetch(`/api/auth/me`);
       if (!response.ok) {
-        // eslint-disable-next-line no-console
         console.warn(`Nie udało się pobrać danych zalogowanego użytkownika`);
         return null;
       }
 
       const userData = await response.json();
-      // eslint-disable-next-line no-console
+
       console.log(`Pobrano dane zalogowanego użytkownika:`, userData);
 
       return {
@@ -54,7 +53,6 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
         email: userData.email,
       };
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(`Błąd podczas pobierania danych zalogowanego użytkownika:`, err);
       return null;
     }
@@ -65,13 +63,12 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
     try {
       const response = await fetch(`/api/users/${empId}`);
       if (!response.ok) {
-        // eslint-disable-next-line no-console
         console.warn(`Nie udało się pobrać danych pracownika ${empId}`);
         return null;
       }
 
       const userData = await response.json();
-      // eslint-disable-next-line no-console
+
       console.log(`Pobrano dane pracownika ${empId}:`, userData);
 
       // Zwracamy tylko podstawowe dane pracownika
@@ -81,7 +78,6 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
         email: userData.email,
       };
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(`Błąd podczas pobierania danych pracownika ${empId}:`, err);
       return null;
     }
@@ -92,13 +88,12 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
     try {
       const response = await fetch(`/api/goals/${goalId}/self-assessment`);
       if (!response.ok) {
-        // eslint-disable-next-line no-console
         console.warn(`Nie udało się pobrać samooceny dla celu ${goalId}`);
         return null;
       }
 
       const data = await response.json();
-      // eslint-disable-next-line no-console
+
       console.log(`Pobrano samoocenę dla celu ${goalId}:`, data);
 
       // API może zwracać dane w różnych formatach, obsłużmy kilka możliwości
@@ -122,11 +117,9 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
         };
       }
 
-      // eslint-disable-next-line no-console
       console.warn(`Nieznany format odpowiedzi API dla celu ${goalId}:`, data);
       return null;
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error(`Błąd podczas pobierania samooceny dla celu ${goalId}:`, err);
       return null;
     }
@@ -149,7 +142,7 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
       setCurrentUser(loggedInUser);
       // Sprawdź, czy użytkownik przegląda własne cele czy cele innego pracownika
       setIsViewingOwnGoals(loggedInUser.id === employeeId);
-      // eslint-disable-next-line no-console
+
       console.log(`Czy użytkownik przegląda własne cele: ${loggedInUser.id === employeeId}`);
     }
 
@@ -172,7 +165,6 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
 
       // Jeśli API zwraca błąd, używamy mockowych danych w trybie deweloperskim
       if (!response.ok) {
-        // eslint-disable-next-line no-console
         console.warn("API zwróciło błąd. Używam mockowych danych w trybie deweloperskim.");
 
         // Pobierz status procesu z mocka
@@ -191,9 +183,9 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
         setTotalWeight(mockGoalsResponse.totalWeight);
 
         // Log dla debugowania
-        // eslint-disable-next-line no-console
+
         console.log("Mock status:", mockStatus, "canEdit:", mockStatus === "in_self_assessment");
-        // eslint-disable-next-line no-console
+
         console.log("Mock goals:", goalsViewModel);
 
         setIsLoading(false);
@@ -233,16 +225,14 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
           }
         }
 
-        // eslint-disable-next-line no-console
         console.log("Goals with fetched self-assessments:", updatedGoals);
         setGoals(updatedGoals);
       }
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error("Błąd pobierania celów:", err);
 
       // W przypadku błędu używamy mockowych danych w trybie deweloperskim
-      // eslint-disable-next-line no-console
+
       console.warn("Używam mockowych danych w trybie deweloperskim po błędzie.");
 
       // Pobierz status procesu z mocka
@@ -261,9 +251,9 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
       setTotalWeight(mockGoalsResponse.totalWeight);
 
       // Log dla debugowania
-      // eslint-disable-next-line no-console
+
       console.log("Mock status:", mockStatus, "canEdit:", mockStatus === "in_self_assessment");
-      // eslint-disable-next-line no-console
+
       console.log("Mock goals:", goalsViewModel);
     } finally {
       setIsLoading(false);
@@ -321,7 +311,6 @@ export function useGoals({ processId, employeeId, process }: UseGoalsProps): Use
 
         return data;
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error("Błąd zapisywania samooceny:", error);
         throw error;
       } finally {

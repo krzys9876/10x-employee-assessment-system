@@ -14,7 +14,6 @@ test.describe("Dashboard Detailed Inspection", () => {
 
   test("Inspect dashboard DOM structure in detail", async ({ page }) => {
     // Log all console messages
-    // eslint-disable-next-line no-console
     page.on("console", (msg) => console.log(`PAGE LOG: ${msg.text()}`));
 
     try {
@@ -82,7 +81,6 @@ test.describe("Dashboard Detailed Inspection", () => {
         (item) => item.text.includes(managerNameEnv) || item.text.includes(process.env.E2E_USERNAME || "")
       );
 
-      // eslint-disable-next-line no-console
       console.log("Potential manager name elements:", managerMatches);
 
       // Filter for employee names
@@ -93,7 +91,6 @@ test.describe("Dashboard Detailed Inspection", () => {
         (item) => item.text.includes(employee1) || item.text.includes(employee2)
       );
 
-      // eslint-disable-next-line no-console
       console.log("Potential employee name elements:", employeeMatches);
 
       // Extract all headings as they often contain section titles
@@ -105,7 +102,6 @@ test.describe("Dashboard Detailed Inspection", () => {
         }));
       });
 
-      // eslint-disable-next-line no-console
       console.log("Headings found:", headings);
 
       // Get all list and table structures
@@ -127,10 +123,8 @@ test.describe("Dashboard Detailed Inspection", () => {
         });
       });
 
-      // eslint-disable-next-line no-console
       console.log("Lists and tables found:", lists);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Test failed with error:", error);
       await page.screenshot({ path: "screenshots/detailed-inspection-error.png" });
       throw error;

@@ -83,7 +83,6 @@ const useDashboard = (): UseDashboardResult => {
         isLoading: false,
       }));
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Error fetching processes:", error);
       setDashboardState((prev) => ({
         ...prev,
@@ -120,7 +119,7 @@ const useDashboard = (): UseDashboardResult => {
           } else if (errorData.error) {
             errorMessage = `${errorMessage}: ${errorData.error}`;
           }
-          // eslint-disable-next-line no-console
+
           console.error("Status update error details:", errorData);
         } catch {
           // If we can't parse the response as JSON, use status text
@@ -146,7 +145,6 @@ const useDashboard = (): UseDashboardResult => {
         return { ...prev, isLoading: false };
       });
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Error updating process status:", error);
       alert(error instanceof Error ? error.message : "Wystąpił nieznany błąd podczas aktualizacji statusu procesu");
       setDashboardState((prev) => ({
@@ -204,7 +202,6 @@ const useDashboard = (): UseDashboardResult => {
               userViewModel.managerName = managerData.name;
             }
           } catch (managerError) {
-            // eslint-disable-next-line no-console
             console.error("Error fetching manager data:", managerError);
             // Continue without manager name rather than failing the whole process
           }
@@ -221,7 +218,6 @@ const useDashboard = (): UseDashboardResult => {
         // Fetch processes after user data is loaded
         await fetchProcesses();
       } catch (error) {
-        // eslint-disable-next-line no-console
         console.error("Error fetching user data:", error);
         setDashboardState((prev) => ({
           ...prev,
@@ -320,7 +316,7 @@ export function DashboardView() {
               limit={10}
               onPageChange={(newPage: number) => {
                 // We're not implementing pagination in this step
-                // eslint-disable-next-line no-console
+
                 console.log("Page changed to:", newPage);
               }}
               onEmployeeSelect={selectEmployee}

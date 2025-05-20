@@ -32,7 +32,6 @@ export const GET: APIRoute = async ({ locals }) => {
       .order("name");
 
     if (categoriesError) {
-      // eslint-disable-next-line no-console
       console.error("Błąd podczas pobierania kategorii celów:", categoriesError);
       return new Response(JSON.stringify({ error: "Wystąpił błąd podczas pobierania kategorii celów" }), {
         status: 500,
@@ -61,7 +60,6 @@ export const GET: APIRoute = async ({ locals }) => {
       },
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Nieoczekiwany błąd podczas obsługi żądania:", error);
     return new Response(JSON.stringify({ error: "Wystąpił błąd serwera" }), {
       status: 500,

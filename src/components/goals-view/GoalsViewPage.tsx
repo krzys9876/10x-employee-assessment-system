@@ -31,7 +31,6 @@ export function GoalsViewPage({ processId, employeeId, process }: GoalsViewPageP
           setIsManager(userData.isManager || false);
         }
       } catch (err) {
-        // eslint-disable-next-line no-console
         console.error("Błąd podczas pobierania danych użytkownika:", err);
       } finally {
         setIsLoadingUser(false);
@@ -42,7 +41,6 @@ export function GoalsViewPage({ processId, employeeId, process }: GoalsViewPageP
         const userData = JSON.parse(localStorage.getItem("user") || "{}");
         setIsManager(userData.isManager || false);
       } catch (err) {
-        // eslint-disable-next-line no-console
         console.error("Błąd podczas sprawdzania statusu managera:", err);
       }
       setIsLoadingUser(false);
@@ -116,7 +114,7 @@ export function GoalsViewPage({ processId, employeeId, process }: GoalsViewPageP
           } else if (errorData.error) {
             errorMessage = `${errorMessage}: ${errorData.error}`;
           }
-          // eslint-disable-next-line no-console
+
           console.error("Status update error details:", errorData);
         } catch {
           // If we can't parse the response as JSON, use status text
@@ -127,13 +125,12 @@ export function GoalsViewPage({ processId, employeeId, process }: GoalsViewPageP
       }
 
       const result = await response.json();
-      // eslint-disable-next-line no-console
+
       console.log("Status updated successfully:", result);
 
       // Prosta aktualizacja UI bez pełnego odświeżenia
       window.location.reload();
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Error updating process status:", error);
       alert(error instanceof Error ? error.message : "Wystąpił nieznany błąd podczas aktualizacji statusu procesu");
     } finally {
@@ -143,17 +140,16 @@ export function GoalsViewPage({ processId, employeeId, process }: GoalsViewPageP
 
   // Dla debugowania - wyświetl w konsoli informacje o stanie ocen
   useEffect(() => {
-    // eslint-disable-next-line no-console
     console.log("canEditSelfAssessment:", canEditSelfAssessment);
-    // eslint-disable-next-line no-console
+
     console.log("saveSelfAssessment available:", !!saveSelfAssessment);
-    // eslint-disable-next-line no-console
+
     console.log("canEditManagerAssessment:", canEditManagerAssessment);
-    // eslint-disable-next-line no-console
+
     console.log("saveManagerAssessment available:", !!saveManagerAssessment);
-    // eslint-disable-next-line no-console
+
     console.log("employee:", employee);
-    // eslint-disable-next-line no-console
+
     console.log("managerAssessments:", managerAssessments);
   }, [
     canEditSelfAssessment,

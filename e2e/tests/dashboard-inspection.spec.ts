@@ -14,7 +14,6 @@ test.describe("Dashboard Page Inspection", () => {
 
   test("Inspect dashboard HTML structure", async ({ page }) => {
     // Log all console messages
-    // eslint-disable-next-line no-console
     page.on("console", (msg) => console.log(`PAGE LOG: ${msg.text()}`));
 
     try {
@@ -33,9 +32,7 @@ test.describe("Dashboard Page Inspection", () => {
       const bodyHTML = await page.evaluate(() => {
         return document.body.innerHTML;
       });
-      // eslint-disable-next-line no-console
       console.log("Body HTML structure:");
-      // eslint-disable-next-line no-console
       console.log(bodyHTML.substring(0, 2000) + "..."); // First 2000 chars
 
       // Get user profile section
@@ -64,7 +61,6 @@ test.describe("Dashboard Page Inspection", () => {
         }
         return null;
       });
-      // eslint-disable-next-line no-console
       console.log("User profile section:", userProfileHTML);
 
       // Get employees list section
@@ -95,10 +91,8 @@ test.describe("Dashboard Page Inspection", () => {
         }
         return null;
       });
-      // eslint-disable-next-line no-console
       console.log("Employees section:", employeesHTML);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Test failed with error:", error);
       await page.screenshot({ path: "screenshots/inspection-error.png" });
       throw error;

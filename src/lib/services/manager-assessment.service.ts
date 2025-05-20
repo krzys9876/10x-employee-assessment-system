@@ -156,7 +156,6 @@ export async function createOrUpdateManagerAssessment(
   }
 
   if (result.error) {
-    // eslint-disable-next-line no-console
     console.error("Nieoczekiwany błąd podczas obsługi żądania POST:", result.error);
 
     return {

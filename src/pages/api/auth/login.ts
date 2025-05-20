@@ -73,7 +73,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
       },
     });
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error("Error in /auth/login endpoint:", err);
     return new Response(
       JSON.stringify({

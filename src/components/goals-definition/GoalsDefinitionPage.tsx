@@ -8,7 +8,7 @@ import { GoalForm } from "@/components/goals-definition/GoalForm";
 export function GoalsDefinitionPage({ processId, employeeId, process, employee }: GoalsDefinitionPageProps) {
   // Process prop is used for passing to child components that may need it
   // or for displaying process-specific information if needed in the future
-  // eslint-disable-next-line no-console
+
   console.log("Process data:", process?.name);
 
   const {
@@ -74,7 +74,6 @@ export function GoalsDefinitionPage({ processId, employeeId, process, employee }
       }
       setEditingGoal(null);
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error("Failed to save goal:", err);
     }
   };

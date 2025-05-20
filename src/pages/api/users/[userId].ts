@@ -153,7 +153,6 @@ export const GET: APIRoute = async ({ params, locals }) => {
       },
     });
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error("Error in /users/{userId} endpoint:", err);
     return new Response(
       JSON.stringify({

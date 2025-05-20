@@ -209,7 +209,6 @@ export const PUT: APIRoute = async ({ params, request, locals }) => {
       },
     });
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error("Error in PUT /assessment-processes/{processId}/status endpoint:", err);
     return new Response(
       JSON.stringify({

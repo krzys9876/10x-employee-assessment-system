@@ -71,7 +71,6 @@ export function useManagerAssessment({ processId, employeeId }: UseManagerAssess
           }
           // Jeśli ocena nie istnieje (404), po prostu nie dodajemy jej do mapy
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.error(`Błąd pobierania oceny kierownika dla celu ${goal.id}:`, error);
           // Kontynuujemy przetwarzanie pozostałych celów
         }
@@ -79,7 +78,6 @@ export function useManagerAssessment({ processId, employeeId }: UseManagerAssess
 
       setAssessments(assessmentsMap);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Błąd pobierania ocen kierownika:", error);
       setError(error instanceof Error ? error.message : "Nieznany błąd");
     } finally {
@@ -127,7 +125,6 @@ export function useManagerAssessment({ processId, employeeId }: UseManagerAssess
 
       return data;
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Błąd zapisywania oceny kierownika:", error);
       throw error;
     } finally {

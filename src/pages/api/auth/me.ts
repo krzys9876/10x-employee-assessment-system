@@ -72,7 +72,6 @@ export const GET: APIRoute = async ({ locals }) => {
       },
     });
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error("Error in /auth/login endpoint:", err);
 
     // Error logging should be handled by a proper logging mechanism

@@ -84,7 +84,6 @@ export const GET: APIRoute = async ({ request, locals }) => {
     } = await query.order("start_date", { ascending: false }).range(offset, offset + limit - 1);
 
     if (fetchError) {
-      // eslint-disable-next-line no-console
       console.error("Error fetching assessment processes:", fetchError);
       return new Response(
         JSON.stringify({
@@ -124,7 +123,6 @@ export const GET: APIRoute = async ({ request, locals }) => {
       },
     });
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error("Error in GET /assessment-processes endpoint:", err);
     return new Response(
       JSON.stringify({

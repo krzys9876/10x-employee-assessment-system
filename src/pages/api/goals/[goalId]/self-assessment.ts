@@ -143,7 +143,6 @@ export const GET: APIRoute = async ({ params, locals }): Promise<Response> => {
 
     return createApiResponse(assessment);
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Nieoczekiwany błąd podczas obsługi żądania GET:", error);
     return createErrorResponse("Wystąpił błąd serwera", 500);
   }
@@ -212,7 +211,6 @@ export const POST: APIRoute = async ({ request, params, locals }): Promise<Respo
 
     return createApiResponse(data, 201);
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Nieoczekiwany błąd podczas obsługi żądania POST:", error);
     return createErrorResponse("Wystąpił błąd serwera", 500);
   }

@@ -38,27 +38,22 @@ export class DashboardPage {
       const isLoadingVisible = await loadingText.isVisible().catch(() => false);
 
       if (isLoadingVisible) {
-        // eslint-disable-next-line no-console
         console.log("Loading text found, waiting for it to disappear...");
         await loadingText
           .waitFor({ state: "hidden", timeout: 10000 })
-          // eslint-disable-next-line no-console
           .catch((e: Error) => console.log("Loading text timeout:", e.message));
       }
 
       // Check for loading spinner elements
       const loadingSpinner = this.page.locator(".loading, [aria-busy='true']");
       if ((await loadingSpinner.count()) > 0 && (await loadingSpinner.isVisible())) {
-        // eslint-disable-next-line no-console
         console.log("Loading spinner found, waiting for it to disappear...");
         await loadingSpinner
           .waitFor({ state: "hidden", timeout: 10000 })
-          // eslint-disable-next-line no-console
           .catch((e: Error) => console.log("Loading spinner timeout:", e.message));
       }
     } catch (e: unknown) {
       const error = e as Error;
-      // eslint-disable-next-line no-console
       console.log("Error handling loading indicators:", error.message);
     }
 
@@ -72,14 +67,12 @@ export class DashboardPage {
       }
     } catch (e: unknown) {
       const error = e as Error;
-      // eslint-disable-next-line no-console
       console.log("Data elements not found or timeout waiting:", error.message);
     }
 
     // Wait for network idle to ensure API calls are complete
     await this.page
       .waitForLoadState("networkidle", { timeout: 10000 })
-      // eslint-disable-next-line no-console
       .catch((e: Error) => console.log("Network idle timeout:", e.message));
 
     // Take a screenshot of the fully loaded dashboard

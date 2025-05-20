@@ -17,19 +17,15 @@ export function GoalCard({
   // Log self-assessment data for debugging
   useEffect(() => {
     if (goal.selfAssessment) {
-      // eslint-disable-next-line no-console
       console.log(`GoalCard ${goal.id} has self-assessment:`, goal.selfAssessment);
     } else {
-      // eslint-disable-next-line no-console
       console.log(`GoalCard ${goal.id} has NO self-assessment data`);
     }
 
     // Log manager-assessment data for debugging
     if (goal.managerAssessment) {
-      // eslint-disable-next-line no-console
       console.log(`GoalCard ${goal.id} has manager-assessment:`, goal.managerAssessment);
     } else {
-      // eslint-disable-next-line no-console
       console.log(`GoalCard ${goal.id} has NO manager-assessment data`);
     }
   }, [goal]);

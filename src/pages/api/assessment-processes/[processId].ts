@@ -61,7 +61,6 @@ export const GET: APIRoute = async ({ params, locals }): Promise<Response> => {
     // 5. Return process data
     return createApiResponse(response);
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Error in /assessment-processes/{processId} endpoint:", error);
     return createErrorResponse("Wystąpił błąd podczas przetwarzania żądania", 500);
   }
