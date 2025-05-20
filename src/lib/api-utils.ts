@@ -58,9 +58,9 @@ export function createErrorResponse(message: string, status = 400, details?: unk
  * @property {boolean} isAuthenticated - True if the user is authenticated, false otherwise.
  * @property {Response | null} error - A `Response` object if authentication fails, otherwise null. This is different from `AuthResult.error` which is an error object.
  */
-interface AuthenticatedUserResult extends Omit<AuthResult, 'error'> {
+interface AuthenticatedUserResult extends Omit<AuthResult, "error"> {
   isAuthenticated: boolean;
-  error: Response | null; 
+  error: Response | null;
 }
 
 /**
